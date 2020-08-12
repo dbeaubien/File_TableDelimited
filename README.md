@@ -6,9 +6,9 @@ The applications we write sometimes need to import and process information from 
 This component lets you hide away the complexity of loading the delimited file into an object with named attributes that align with the columns in the file.
 
 ## Features
-- The file can be tab-delmited, comma delimited, comma delimted with a custom separator
-- The columns can be in any order
-- The data within the columns is type casted
+- Files can be tab-delimited, comma delimited, comma delimited with a custom separator
+- Columns can be in any order
+- Data within each column can be type casted
 - Columns can be optional or required
 - Handle any EOL (e.g. CR, LF, CRLF)
 
