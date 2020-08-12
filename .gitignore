@@ -1,0 +1,18 @@
+# No user preferences
+userPreferences.*
+
+# No derived data
+Project/DerivedData
+
+# No data or indexes
+Data/*
+*.4dd
+*.4DIndx
+*.4DIndy
+*.Match
+*symbols.txt
+
+# No logs
+Logs
+
+Settings/buildApp.4DSettings
