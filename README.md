@@ -1,7 +1,7 @@
 # File_TableDelimited
 ### A modern Component for Reading Delimited Text Files
 
-I often need the applications I write to import and process information from tab-delimited/csv files. Everytime almost the same code is needed to open, vaildate and prepare it for processing with loads of arrays and handling the positions that that columns might appear in.
+The applications we write sometimes need to import and process information from tab-delimited/csv files. The code needed to open, validate and prepare the file for processing is quite similar in each case is usually duplicated with each file importer. It gets even more complicated when handling the positions that that columns might appear in.
 
 This component lets you hide away the complexity of loading the delimited file into an object with named attributes that align with the columns in the file.
 
