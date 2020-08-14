@@ -1,0 +1,30 @@
+﻿{
+	"author": "Dani Beaubien",
+	"copyrights": "Open Source",
+	"version": "Build 2020813",
+	"buildDate": "2020-08-13",
+	"url": "http://openroaddevelopment.com",
+	"manifestFormatVersion": "1.0",
+	"buildWith4DVersion": "v18.2 final (build 252363)",
+	"methodList": [
+		"File_DoesExist",
+		"File_IsCSV",
+		"File_IsJPG",
+		"File_IsPNG",
+		"File_IsTabDelimited",
+		"FileBuffer_EOF",
+		"FileBuffer_FetchCSVLine",
+		"FileBuffer_FetchData_BySize",
+		"FileBuffer_FetchData_ByString",
+		"FileBuffer_FetchData_PeekAhead",
+		"FileBuffer_FetchTabDelimitedLne",
+		"FileBuffer_FillBuffer",
+		"FileBuffer_GetFilePostion",
+		"FileBuffer_Init",
+		"FileBuffer_TellMeTheEOL",
+		"Folder_DoesExist",
+		"Folder_ParentName",
+		"Folder_VerifyExistance",
+		"STR_GetLeftOfChar"
+	]
+}

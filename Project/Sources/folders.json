@@ -1,0 +1,54 @@
+﻿{
+	"(Default Folder)": {
+		"groups": [
+			"(Default Forms)",
+			"(Default Project Methods)",
+			"(Default Tables)"
+		]
+	},
+	"(Default Forms)": {},
+	"(Default Project Methods)": {},
+	"(Default Tables)": {},
+	"FileImporter Methods": {
+		"methods": [
+			"FileImporter_DeclareColumn",
+			"FileImporter_Load2Collection",
+			"FileImporter_New"
+		]
+	},
+	"OnErr Methods": {
+		"methods": [
+			"OnErr_ClearError",
+			"OnErr_GENERIC",
+			"OnErr_GENERIC_Minimal",
+			"OnErr_GetLastError",
+			"OnErr_GetLastErrorMessages",
+			"OnErr_Install_Handler"
+		]
+	},
+	"Utility Methods": {
+		"groups": [
+			"OnErr Methods"
+		],
+		"methods": [
+			"Array_SetSize",
+			"Compiler_Arrays",
+			"Compiler_Methods",
+			"Compiler_Variables",
+			"Date2String",
+			"NUM_GetMaxLong",
+			"PTR_IsArray",
+			"STR_isDate",
+			"STR_isDate_GetDate",
+			"STR_isIntegerNumber",
+			"STR_isISODate",
+			"STR_IsOneOf",
+			"String2Date"
+		]
+	},
+	"trash": {
+		"groups": [
+			"(Default Folder)"
+		]
+	}
+}
