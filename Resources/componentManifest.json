@@ -1,8 +1,8 @@
 ﻿{
 	"author": "Dani Beaubien",
 	"copyrights": "Open Source",
-	"version": "Build 2020813",
-	"buildDate": "2020-08-13",
+	"version": "Build 2020815",
+	"buildDate": "2020-08-15",
 	"url": "https://github.com/4D-Open-Source/File_TableDelimited",
 	"manifestFormatVersion": "1.0",
 	"buildWith4DVersion": "v18.2 final (build 252363)",

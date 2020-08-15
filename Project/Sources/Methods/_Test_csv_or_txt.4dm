@@ -17,12 +17,24 @@ If (File_DoesExist ($importFilePath))
 	$importCollection:=FileImporter_Load2Collection ($importObj)
 	If ($importObj.status="success")
 		
+/* At this point, $importCollection is a collection of objects with this structure
+{
+ "serialNo":9788189999599,
+ "company":"TALES OF SHIVA",
+ "employee":"Mark",
+ "description":"mark",
+ "numDaysTakenOnLeave":0
+}
+*/
+		
+		  // Get a unique collection of the company names from the file.
 		C_COLLECTION:C1488($companies)
 		$companies:=$importCollection.distinct("company")
 		
 		C_OBJECT:C1216($rowObject)
 		For each ($rowObject;$importCollection)
 			
+			  // ...  do what ever processing of the row represented by $rowObject ...
 			
 		End for each 
 		
