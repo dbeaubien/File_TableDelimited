@@ -125,11 +125,11 @@ End if
 
 
 ## Shared Methods
-### FileImporter_New (pathToImportFile:c_text) returns importObject:c_object
-Creates and initalizes an import object. Used with "FileImporter_DeclareColumn" and "FileImporter_Load2Collection".
+### FileImporter\_New (pathToImportFile:c_text) returns importObject:c_object
+Creates and initalizes an import object. Used with "FileImporter\_DeclareColumn" and "FileImporter\_Load2Collection".
 
 
-### FileImporter_DeclareColumn (importObject:c_object, headerLabel:c_text, objectAttribute:c_object, type:c_lontint)
+### FileImporte\_DeclareColumn (importObject:c\_object, headerLabel:c\_text, objectAttribute:c\_object, type:c\_lontint)
 Adds the declared column definition to the import object.
 - `headerLabel` is the column header for the column being imported
 - `objectAttribute` is the attribute name that will be used when importing the data (see exmaple)
@@ -139,5 +139,5 @@ Adds the declared column definition to the import object.
 - If a 4D data type of `Is date` is used, then the value will be converted to a date. The following formats are supported: m/dd/yyyy, mm/d/yyyy, mm/dd/yyyy, and yyyy-mm-dd.
 - 4D data type of `Is object` is not supported
 
-### FileImporter_Load2Collection (importObject:c_object) returns importedRowCollection:c_collection
+### FileImporter\_Load2Collection (importObject:c\_object) returns importedRowCollection:c\_collection
 Peform the import based on the defined columns. A collection of imported rows is returned.
