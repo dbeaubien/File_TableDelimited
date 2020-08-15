@@ -129,7 +129,7 @@ End if
 Creates and initalizes an import object. Used with "FileImporter\_DeclareColumn" and "FileImporter\_Load2Collection".
 
 
-### FileImporte\_DeclareColumn (importObject:c\_object, headerLabel:c\_text, objectAttribute:c\_object, type:c\_lontint)
+### FileImporter\_DeclareColumn (importObject:c\_object, headerLabel:c\_text, objectAttribute:c\_object, type:c\_longint)
 Adds the declared column definition to the import object.
 - `headerLabel` is the column header for the column being imported
 - `objectAttribute` is the attribute name that will be used when importing the data (see exmaple)
