@@ -48,7 +48,7 @@ If (File_DoesExist ($importFilePath))
 			}
 		*/
 
-    // Get a unique collection of the company names from the file.
+                // Get a unique collection of the company names from the file.
 		C_COLLECTION($companies)
 		$companies:=$importCollection.distinct("company")
 		
