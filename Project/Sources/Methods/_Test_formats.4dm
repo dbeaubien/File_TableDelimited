@@ -41,7 +41,6 @@ If (File_DoesExist ($importFilePath))
 		
 		C_OBJECT:C1216($rowObject)
 		For each ($rowObject;$importCollection)
-			SET TEXT TO PASTEBOARD:C523(JSON Stringify:C1217($rowObject;*))
 			
 			  // ...  do what ever processing of the row represented by $rowObject ...
 			
