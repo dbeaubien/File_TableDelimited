@@ -15,6 +15,7 @@ This component lets you hide away the complexity of loading the delimited file i
 ## Requirements
 - 4D v18 is required.
 - Files must contain tabular data.
+- Requires the [FileFolder_Utils](https://github.com/4D-Open-Source/FileFolder_Utils) component
 
 ## Installation and Use
 Copy the `File_TableDelimited.4dbase` into the Components folder of your application. It is suggested that you compile the component before installing it into your own projects.
