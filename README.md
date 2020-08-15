@@ -20,16 +20,123 @@ This component lets you hide away the complexity of loading the delimited file i
 Copy the `File_TableDelimited.4dbase` into the Components folder of your application. It is suggested that you compile the component before installing it into your own projects.
 
 ## Examples
-Example #1
+Example #1 - Load a file, get a list of unique companies from the file and then get ready to process the contents
 ```
-to be filled in	 
+C_TEXT($importFilePath)
+$importFilePath:=Get 4D folder(Current resources folder)+"Test_Files"+Folder separator+"Sample2000.csv"
+If (File_DoesExist ($importFilePath))
+	C_OBJECT($importObj)
+	$importObj:=FileImporter_New ($importFilePath)
+	FileImporter_DeclareColumn ($importObj;"Serial Number";"serialNo";Is longint)
+	FileImporter_DeclareColumn ($importObj;"Company Name";"company";Is text)
+	FileImporter_DeclareColumn ($importObj;"Employee Markme";"employee";Is text)
+	FileImporter_DeclareColumn ($importObj;"Description";"description";Is text)
+	FileImporter_DeclareColumn ($importObj;"Leave";"numDaysTakenOnLeave";Is longint)
+	
+	C_COLLECTION($importCollection)
+	$importCollection:=FileImporter_Load2Collection ($importObj)
+	If ($importObj.status="success")
+		
+ 		/* At this point, $importCollection is a collection of objects with this structure
+			{
+			 "serialNo":9788189999599,
+			 "company":"TALES OF SHIVA",
+			 "employee":"Mark",
+			 "description":"mark",
+			 "numDaysTakenOnLeave":0
+			}
+		*/
+
+    // Get a unique collection of the company names from the file.
+		C_COLLECTION($companies)
+		$companies:=$importCollection.distinct("company")
+		
+		C_OBJECT($rowObject)
+		For each ($rowObject;$importCollection)
+			
+			...  do what ever processing of the row represented by $rowObject ...
+			
+		End for each 
+		
+	Else 
+		ALERT("Failed with error \""+$importObj.errorMessage+"\".")
+	End if 
+	
+Else 
+	ALERT("Test File not found!")
+End if
 ```
 
-Example #2
+Example #2 - Load a file, get the columns in various 4D data formats
 ```
-to be filled in	
+C_TEXT($importFilePath)
+$importFilePath:=Get 4D folder(Current resources folder)+"Test_Files"+Folder separator+"Student_Report.csv"
+If (File_DoesExist ($importFilePath))
+	
+	C_OBJECT($importObj)
+	$importObj:=FileImporter_New ($importFilePath)
+	
+	FileImporter_DeclareColumn ($importObj;"Internal Student ID";"id";Is longint)  // importer will convert to a longint
+	FileImporter_DeclareColumn ($importObj;"First Name";"firstName";Is text)
+	FileImporter_DeclareColumn ($importObj;"Middle Name";"middleName";Is text)
+	FileImporter_DeclareColumn ($importObj;"Last Name";"lastName";Is text)
+	FileImporter_DeclareColumn ($importObj;"Birthdate";"dob";Is date)
+	FileImporter_DeclareColumn ($importObj;"One Time Consent Date";"consentDate";Is date)  // importer will convert to a date
+	FileImporter_DeclareColumn ($importObj;"One Time Consent Y/N";"consentGiven";Is boolean)  // importer will convert to a boolean
+	
+	FileImporter_DeclareColumn ($importObj;"Not in File";"NIF";Is longint)  // column is not in file, so appears as a NULL in the results objects
+	FileImporter_DeclareColumn ($importObj;"Birthdate";"dob_AsStr";Is text)  // also fetch the birthdate as the raw string
+	FileImporter_DeclareColumn ($importObj;"One Time Consent Y/N";"consentGiven_AsStr";Is text)
+	
+	C_COLLECTION($importCollection)
+	$importCollection:=FileImporter_Load2Collection ($importObj)
+	If ($importObj.status="success")
+		/* At this point, $importCollection is a collection of objects with this structure
+			{
+			 "id": 25655,
+			 "firstName": "Rachel",
+			 "middleName": "Renee",
+			 "lastName": "Aaron",
+			 "dob": "2011-07-10",
+			 "consentDate": "2019-05-06",
+			 "consentGiven": true,
+			 "NIF": null,
+			 "dob_AsStr": "07/10/2011",
+			 "consentGiven_AsStr": "Yes"
+			}
+		*/
+
+		C_OBJECT($rowObject)
+		For each ($rowObject;$importCollection)
+			
+			// ...  do what ever processing of the row represented by $rowObject ...
+
+		End for each 
+		
+	Else 
+		ALERT("Failed with error \""+$importObj.errorMessage+"\".")
+	End if 
+	
+Else 
+	ALERT("Test File not found!")
+End if  
 ```
+
 
 ## Shared Methods
-### tbd ( object; path; value )
-blaa blaa
+### FileImporter_New (pathToImportFile:c_text) returns importObject:c_object
+Creates and initalizes an import object. Used with "FileImporter_DeclareColumn" and "FileImporter_Load2Collection".
+
+
+### FileImporter_DeclareColumn (importObject:c_object, headerLabel:c_text, objectAttribute:c_object, type:c_lontint)
+Adds the declared column definition to the import object.
+- `headerLabel` is the column header for the column being imported
+- `objectAttribute` is the attribute name that will be used when importing the data (see exmaple)
+- `type` is a 4D data type. E.g. `Is text`
+- If a 4D data type of `Is boolean` is used, then values of "Yes", "Y" and "True" will result in true values.
+- If a 4D data type of `Is Real`is used, then the value will be number in the json object.
+- If a 4D data type of `Is date` is used, then the value will be converted to a date. The following formats are supported: m/dd/yyyy, mm/d/yyyy, mm/dd/yyyy, and yyyy-mm-dd.
+- 4D data type of `Is object` is not supported
+
+### FileImporter_Load2Collection (importObject:c_object) returns importedRowCollection:c_collection
+Peform the import based on the defined columns. A collection of imported rows is returned.
