@@ -16,3 +16,4 @@ Data/*
 Logs
 
 Settings/buildApp.4DSettings
+Resources/componentManifest.json
