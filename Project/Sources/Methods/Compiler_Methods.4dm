@@ -56,3 +56,10 @@ C_TEXT:C284(String2Date ;$2)
 C_LONGINT:C283(NUM_GetMaxLong ;$0)
 C_LONGINT:C283(NUM_GetMaxLong ;$1)
 C_LONGINT:C283(NUM_GetMaxLong ;$2)
+
+  //_Test_Testable_Processor
+C_OBJECT:C1216(_Test_Testable_Processor ;$1)
+
+  //_Test_Testable_FetchData
+C_OBJECT:C1216(_Test_Testable_FetchData ;$0)
+C_TEXT:C284(_Test_Testable_FetchData ;$1)
