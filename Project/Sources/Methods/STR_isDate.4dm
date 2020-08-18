@@ -6,13 +6,13 @@
   //   Returns true is the passed date matches the
   //   "MM/DD/YYYY" or "MM/DD/YY" date format.
 
-C_TEXT:C284($1;$vt_srcText)
-C_BOOLEAN:C305($0;$vb_isFormattedCorrectly)
+C_TEXT:C284($1;$srcText)
+C_BOOLEAN:C305($0;$isFormattedCorrectly)
 
-$vb_isFormattedCorrectly:=False:C215
+$isFormattedCorrectly:=False:C215
 If (Asserted:C1132(Count parameters:C259=1))
-	$vt_srcText:=$1
+	$srcText:=$1
 	
-	$vb_isFormattedCorrectly:=(STR_isDate_GetDate ($vt_srcText)#!00-00-00!)
+	$isFormattedCorrectly:=(STR_isDate_GetDate ($srcText)#!00-00-00!)
 End if 
-$0:=$vb_isFormattedCorrectly
+$0:=$isFormattedCorrectly
