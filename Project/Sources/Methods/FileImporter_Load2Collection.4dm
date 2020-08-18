@@ -44,6 +44,7 @@ If (Asserted:C1132(Count parameters:C259=1))
 				
 				  // Clear any previously imported data
 				$importObj.importedData:=$importedRowCollection
+				$importObj.fileHeaderColumns:=New collection:C1472
 				
 				If (True:C214)  // Load the header row and determine positions of each column in the collection
 					ARRAY TEXT:C222($columnValuesArr;0)
@@ -53,6 +54,7 @@ If (Asserted:C1132(Count parameters:C259=1))
 					If ($importFileFormat="TSV")
 						FileBuffer_FetchTabDelimitedLne ($eol;->$columnValuesArr)
 					End if 
+					ARRAY TO COLLECTION:C1563($importObj.fileHeaderColumns;$columnValuesArr)
 					
 					C_OBJECT:C1216($column)
 					C_LONGINT:C283($numColumns)
