@@ -1,14 +1,15 @@
 ﻿{
 	"author": "Dani Beaubien",
 	"copyrights": "Open Source",
-	"version": "Build 2020819",
-	"buildDate": "2020-08-19",
+	"version": "Build 202315",
+	"buildDate": "2023-01-05",
 	"url": "https://github.com/4D-Open-Source/File_TableDelimited",
 	"manifestFormatVersion": "1.0",
-	"buildWith4DVersion": "v18.2 final (build 252363)",
+	"buildWith4DVersion": "v19.5 final (build 283893)",
 	"methodList": [
 		"FileImporter_DeclareColumn",
 		"FileImporter_Load2Collection",
-		"FileImporter_New"
+		"FileImporter_New",
+		"FileImporter_RowStart"
 	]
 }

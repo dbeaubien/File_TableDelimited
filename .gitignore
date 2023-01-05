@@ -17,3 +17,4 @@ Logs
 
 Settings/buildApp.4DSettings
 Resources/componentManifest.json
+Libraries/lib4d-arm64.dylib

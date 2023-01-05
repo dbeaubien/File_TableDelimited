@@ -1,2 +1,2 @@
 //%attributes = {"invisible":true}
-ARRAY TEXT:C222(gErrorTextArr;0)
+ARRAY TEXT:C222(gErrorTextArr; 0)
