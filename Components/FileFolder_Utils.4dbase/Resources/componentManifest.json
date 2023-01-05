@@ -1,11 +1,11 @@
 ﻿{
 	"author": "Dani Beaubien",
 	"copyrights": "Open Source",
-	"version": "Build 2020818",
-	"buildDate": "2020-08-18",
+	"version": "Build 20221021",
+	"buildDate": "2022-10-21",
 	"url": "https://github.com/4D-Open-Source/FileFolder_Utils",
 	"manifestFormatVersion": "1.0",
-	"buildWith4DVersion": "v18.2 final (build 252363)",
+	"buildWith4DVersion": "v19.4 final (build 282375)",
 	"methodList": [
 		"File_DoesExist",
 		"File_IsCSV",

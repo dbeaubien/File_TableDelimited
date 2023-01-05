@@ -48,22 +48,18 @@ If (Asserted:C1132(Count parameters:C259=1))
 				
 				If (True:C214)  // Load the header row and determine positions of each column in the collection
 					ARRAY TEXT:C222($columnValuesArr; 0)
-					C_LONGINT:C283($counter)
-					$counter:=0
 					
-					If ($importFileFormat="CSV")
-						Repeat 
-							FileBuffer_FetchCSVLine($eol; ->$columnValuesArr)
-							$counter:=$counter+1
-						Until ($importObj.rowStart=$counter)
-					End if 
-					
-					If ($importFileFormat="TSV")
-						Repeat 
+					var $num_lines_read_in : Integer
+					$num_lines_read_in:=0
+					Repeat   // read in the header row, skipping to the start row as needed
+						If ($importFileFormat="TSV")
 							FileBuffer_FetchTabDelimitedLne($eol; ->$columnValuesArr)
-							$counter:=$counter+1
-						Until ($importObj.rowStart=$counter)
-					End if 
+						End if 
+						If ($importFileFormat="CSV")
+							FileBuffer_FetchCSVLine($eol; ->$columnValuesArr)
+						End if 
+						$num_lines_read_in:=$num_lines_read_in+1
+					Until ($importObj.rowStart<=$num_lines_read_in)
 					
 					ARRAY TO COLLECTION:C1563($importObj.fileHeaderColumns; $columnValuesArr)
 					
